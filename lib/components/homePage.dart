@@ -13,12 +13,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final Geolocator _geolocator = Geolocator()..forceAndroidLocationManager;
-  Position _position;
-  String _city;
-  int _temp;
-  String _icon;
-  String _desc;
-  Color _color;
+  late Position _position;
+  late String _city;
+  late int _temp;
+  late String _icon;
+  late String _desc;
+  late Color _color;
   WeatherFetch _weatherFetch = new WeatherFetch();
 
   @override
@@ -53,6 +53,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    stops: const [0, 1.0],
+                    colors: [_color, Colors.white])),
             child: Center(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -72,13 +78,7 @@ class _HomePageState extends State<HomePage> {
                       temperature: _temp,
                       iconCode: _icon,
                     )
-                ])),
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    stops: [0, 1.0],
-                    colors: [_color, Colors.white]))));
+                ]))));
   }
 
   _getCurrent() {

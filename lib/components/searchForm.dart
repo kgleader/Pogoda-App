@@ -4,7 +4,7 @@ class Search extends StatefulWidget {
   final Function(String) parentCallback;
 
   const Search({
-    this.parentCallback,
+    required this.parentCallback,
   }) : super();
 
   @override

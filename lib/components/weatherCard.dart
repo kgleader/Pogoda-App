@@ -6,9 +6,9 @@ class WeatherCard extends StatelessWidget {
   final String iconCode;
 
   const WeatherCard({
-    this.title,
-    this.temperature,
-    this.iconCode,
+    required this.title,
+    required this.temperature,
+    required this.iconCode,
   }) : super();
 
   @override
